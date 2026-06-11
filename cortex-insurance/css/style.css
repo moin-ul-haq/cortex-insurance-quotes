@@ -59,17 +59,27 @@ a {
 /* Brand text colors swap on scroll */
 .navbar .brand-text {
     color: #fff;
+    font-size: 1.3rem;
+    font-weight: 700;
+    margin-left: 8px;
 }
 
-.navbar .brand-text .brand-accent {
+.navbar .brand-text .brand-accent,
+.navbar .brand-text .brand-dot {
     color: #6ee7b7;
+}
+
+.navbar .brand-text .brand-dot {
+    font-size: 0.5rem;
+    vertical-align: super;
 }
 
 .navbar.scrolled .brand-text {
     color: var(--dark);
 }
 
-.navbar.scrolled .brand-text .brand-accent {
+.navbar.scrolled .brand-text .brand-accent,
+.navbar.scrolled .brand-text .brand-dot {
     color: var(--primary);
 }
 
@@ -107,6 +117,15 @@ a {
 
 .navbar.scrolled .navbar-toggler-icon {
     background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba(0,0,0,0.55)' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+}
+
+/* Cross icon when menu is active */
+.navbar .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba(255,255,255,0.9)' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M7 7l16 16M23 7L7 23'/%3e%3c/svg%3e");
+}
+
+.navbar.scrolled .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba(0,0,0,0.55)' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M7 7l16 16M23 7L7 23'/%3e%3c/svg%3e");
 }
 
 /* ---- Hero Section ---- */
@@ -538,11 +557,30 @@ footer hr {
     .quote-section h2 {
         font-size: 2rem;
     }
+
+    .navbar-collapse {
+        background-color: white;
+        padding: 1rem;
+        border-radius: 8px;
+        margin-top: 15px;
+        box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+        text-align: center;
+    }
+    
+    .navbar .nav-link {
+        color: var(--dark) !important;
+        padding: 12px 0;
+    }
+    
+    .navbar .nav-link:hover,
+    .navbar .nav-link.active {
+        color: var(--primary) !important;
+    }
 }
 
 @media (max-width: 767px) {
     .hero {
-        min-height: 70vh;
+        min-height: 100vh;
     }
     
     .hero h1 {
@@ -571,5 +609,30 @@ footer hr {
 
     footer .row > div {
         margin-bottom: 25px;
+    }
+}
+
+@media (max-width: 360px) {
+    .navbar .brand-text {
+        font-size: 1.1rem;
+        margin-left: 4px;
+    }
+    
+    .navbar .logo-svg {
+        width: 35px;
+        height: 35px;
+    }
+
+    .hero h1 {
+        font-size: 1.5rem;
+    }
+
+    .hero p.lead {
+        font-size: 0.85rem;
+    }
+
+    .btn-hero {
+        padding: 10px 24px;
+        font-size: 14px;
     }
 }
